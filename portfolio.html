@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charlie Anthony Mejia Lighting Design</title>
+    <title>Portfolio - Charlie Anthony Mejia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -14,107 +14,178 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body, html {
-            height: 100%;
+        body {
+            background-color: #111;
+            color: #fff;
             /* Changed font family to Roboto */
             font-family: 'Roboto', sans-serif;
-            overflow: hidden;
-            background-color: #000;
+            padding: 40px 20px;
         }
 
-        /* Full-screen slideshow container */
-        .slideshow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+        /* Top Navigation Header */
+        header {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        /* Individual slide images */
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        /* Centered overlay banner */
-        .banner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            background-color: #fffde6; /* Cream/yellow box */
-            padding: 30px 50px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-radius: 4px;
-        }
-
-        .banner h1 {
-            font-size: 2.2rem;
+        .logo-text {
+            font-size: 1.1rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: #d6336c; 
-            margin-bottom: 15px;
-            white-space: nowrap;
+            letter-spacing: 1px;
+            color: #fffde6;
+            text-transform: uppercase;
         }
-
-        .banner nav a {
+        nav a {
+            color: #fffde6;
             text-decoration: none;
-            color: #333;
-            margin: 0 20px;
+            margin-left: 20px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 1px;
             transition: color 0.3s;
         }
+        nav a:hover { 
+            color: #d6336c; 
+        }
 
-        .banner nav a:hover {
-            color: #d6336c;
+        /* Page Title */
+        h1.page-title {
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            color: #fffde6;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        /* Banner List Container */
+        .portfolio-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Individual Banner Item */
+        .portfolio-banner {
+            position: relative;
+            width: 100%;
+            height: 300px; 
+            overflow: hidden;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+        }
+
+        .portfolio-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .portfolio-banner .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+            transition: background 0.3s;
+        }
+
+        .portfolio-banner .project-info {
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            z-index: 2;
+        }
+
+        .portfolio-banner h2 {
+            font-size: 1.8rem;
+            color: #fffde6;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .portfolio-banner p {
+            font-size: 1rem;
+            color: #ccc;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hover Interactions */
+        .portfolio-banner:hover img {
+            transform: scale(1.03); 
+        }
+        
+        .portfolio-banner:hover .overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-banner {
+                height: 200px;
+            }
+            .portfolio-banner .project-info {
+                left: 20px;
+                bottom: 20px;
+            }
+            .portfolio-banner h2 {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="slideshow">
-        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=cover&w=1920&q=80" class="slide active">
-        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=cover&w=1920&q=80" class="slide">
-        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=cover&w=1920&q=80" class="slide">
-    </div>
-
-    <div class="banner">
-        <h1>CHARLIE ANTHONY MEJIA LIGHTING DESIGN</h1>
+    <header>
+        <div class="logo-text">Charlie Anthony Mejia</div>
         <nav>
-            <a href="portfolio.html">PORTFOLIO</a>
-            <a href="about.html">ABOUT</a>
-            <a href="contact.html">CONTACT</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
+    </header>
+    
+    <h1 class="page-title">Portfolio</h1>
+
+    <div class="portfolio-list">
+
+        <a href="#" class="portfolio-banner">
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=cover&w=1200&q=80" alt="Arcadia Project">
+            <div class="overlay"></div>
+            <div class="project-info">
+                <h2>Arcadia</h2>
+                <p>Theatrical Production — 2026</p>
+            </div>
+        </a>
+
+        <a href="#" class="portfolio-banner">
+            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=cover&w=1200&q=80" alt="Live Concert Project">
+            <div class="overlay"></div>
+            <div class="project-info">
+                <h2>Live Concert Lighting</h2>
+                <p>Arena Showcase</p>
+            </div>
+        </a>
+
+        <a href="#" class="portfolio-banner">
+            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=cover&w=1200&q=80" alt="Opera Project">
+            <div class="overlay"></div>
+            <div class="project-info">
+                <h2>The Opera</h2>
+                <p>Main Stage Production</p>
+            </div>
+        </a>
+
     </div>
 
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        const slideInterval = 4000; 
-
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        setInterval(nextSlide, slideInterval);
-    </script>
 </body>
 </html>

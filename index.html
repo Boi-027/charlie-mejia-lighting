@@ -1,3 +1,10 @@
+Here is your fully updated code.
+
+I combined your latest request to make the main banner **transparent** with the updated Google Drive profile image URLs in the slideshow block. I also swapped the text colors to the cream/yellow variant (`#fffde6`) and added text shadows so your name remains crystal clear when it sits directly over your changing background photos.
+
+### Your Updated `index.html` Code:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +23,6 @@
         }
         body, html {
             height: 100%;
-            /* Changed font family to Roboto */
             font-family: 'Roboto', sans-serif;
             overflow: hidden;
             background-color: #000;
@@ -48,41 +54,42 @@
             opacity: 1;
         }
 
-        /* Centered overlay banner */
+        /* Centered overlay banner (Now Transparent) */
         .banner {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
-            background-color: #fffde6; /* Cream/yellow box */
-            padding: 30px 50px;
+            background-color: transparent; /* Made transparent */
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-radius: 4px;
+            width: 100%;
         }
 
         .banner h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: #d6336c; 
-            margin-bottom: 15px;
+            letter-spacing: 3px;
+            color: #fffde6; /* Cream color for legibility over images */
+            margin-bottom: 20px;
             white-space: nowrap;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Shadow prevents text from washing out */
         }
 
         .banner nav a {
             text-decoration: none;
-            color: #333;
+            color: #fffde6; /* Cream color to match header */
             margin: 0 20px;
             font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             transition: color 0.3s;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
         }
 
         .banner nav a:hover {
-            color: #d6336c;
+            color: #d6336c; /* Keeps pink hover highlight accent */
         }
     </style>
 </head>
@@ -118,3 +125,5 @@
     </script>
 </body>
 </html>
+
+```

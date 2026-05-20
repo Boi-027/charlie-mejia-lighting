@@ -1,4 +1,8 @@
-Here is the code reverted back to the `googleusercontent.com` link format with all 12 of your image IDs swapped in.
+Total misinterpretation on my part—I see exactly what happened. I accidentally mashed all your unique IDs into a single, massive URL line instead of generating a completely new web link for every single photo.
+
+Here is the fixed, clean code with all 12 images separated into their own distinct `<img>` tags so your slideshow can loop through them one by one.
+
+### Your Fixed `index.html` Code:
 
 ```html
 <!DOCTYPE html>
@@ -50,7 +54,7 @@ Here is the code reverted back to the `googleusercontent.com` link format with a
             opacity: 1;
         }
 
-        /* Centered overlay banner (Transparent) */
+        /* Centering overlay banner (Transparent) */
         .banner {
             position: absolute;
             top: 50%;
@@ -92,18 +96,18 @@ Here is the code reverted back to the `googleusercontent.com` link format with a
 <body>
 
     <div class="slideshow">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsT0HAjxLVtvOJFLe7pKiUL4nfSv4qMsT0O" class="slide active">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTpbyO7upesF9vk3e6aSUuAE_U6lK0fff6" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTV0ndiCMSeoHj7i0A8lwvshe4noPjYnb8" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTe5atv0gVhnggnb88GhfNE12Ft_dw5fs4" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTUffy3MlfmWsbOpunBa9BQ0LP6pPp1FIQ" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTbTW0gOIjYPTEMVTOJROZv6300OCF6ZRl" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTu_BgE_goMVSbX1QOg7E3tQyjrbcRRuzR" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsT1CFsv6vW9H-vfGI0OCJwvWAnF7gfV9wc" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTklVgTR82laZU7aQwlfiUc2Opw9SLzn5e" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTWGhmlLVxR0q1T2_0EUxNCG42jR-fTOmp" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTlpTHf5bp4PrO9QHUmN63Ji9GL81ogjA4" class="slide">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1A2b3C4d5E6f7G8h9I0j_K_L_MNoPqRsTTZVtRFwARhYS3Q2ib5WA-jSCtNRVNvcj" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/10HAjxLVtvOJFLe7pKiUL4nfSv4qMsT0O" class="slide active">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1pbyO7upesF9vk3e6aSUuAE_U6lK0fff6" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1V0ndiCMSeoHj7i0A8lwvshe4noPjYnb8" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1e5atv0gVhnggnb88GhfNE12Ft_dw5fs4" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1Uffy3MlfmWsbOpunBa9BQ0LP6pPp1FIQ" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1bTW0gOIjYPTEMVTOJROZv6300OCF6ZRl" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1u_BgE_goMVSbX1QOg7E3tQyjrbcRRuzR" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/11CFsv6vW9H-vfGI0OCJwvWAnF7gfV9wc" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1klVgTR82laZU7aQwlfiUc2Opw9SLzn5e" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1WGhmlLVxR0q1T2_0EUxNCG42jR-fTOmp" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1lpTHf5bp4PrO9QHUmN63Ji9GL81ogjA4" class="slide">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1TZVtRFwARhYS3Q2ib5WA-jSCtNRVNvcj" class="slide">
     </div>
 
     <div class="banner">

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Base page reset */
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +18,6 @@
         body {
             background-color: #111;
             color: #fff;
-            /* Changed font family to Roboto */
             font-family: 'Roboto', sans-serif;
             padding: 40px 20px;
         }
@@ -60,20 +60,20 @@
             font-weight: 700;
         }
 
-        /* Banner List Container */
+        /* Up and Down Layout Container */
         .portfolio-list {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            gap: 24px;
+            flex-direction: column; /* Stacks items vertically */
+            gap: 24px; /* Vertical gap between rows */
         }
 
-        /* Individual Banner Item */
+        /* Individual Widescreen Banner Rows */
         .portfolio-banner {
             position: relative;
             width: 100%;
-            height: 300px; 
+            height: 350px; /* Adjust row height here */
             overflow: hidden;
             border-radius: 6px;
             cursor: pointer;
@@ -81,6 +81,7 @@
             text-decoration: none;
         }
 
+        /* Images stretch completely across the banner */
         .portfolio-banner img {
             width: 100%;
             height: 100%;
@@ -88,57 +89,62 @@
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        /* Smooth dark overlay gradient to make text pop over variable lighting images */
         .portfolio-banner .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
             transition: background 0.3s;
         }
 
+        /* Bottom-left text alignment styling */
         .portfolio-banner .project-info {
             position: absolute;
-            bottom: 30px;
+            bottom: 35px;
             left: 40px;
             z-index: 2;
         }
 
         .portfolio-banner h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #fffde6;
             letter-spacing: 1px;
             margin-bottom: 5px;
             text-transform: uppercase;
             font-weight: 700;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
         }
 
         .portfolio-banner p {
             font-size: 1rem;
             color: #ccc;
             letter-spacing: 0.5px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
 
-        /* Hover Interactions */
+        /* Interaction Effects */
         .portfolio-banner:hover img {
-            transform: scale(1.03); 
+            transform: scale(1.02); /* Slight immersive zoom */
         }
         
         .portfolio-banner:hover .overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
         }
 
+        /* Adjusts banner sizes gracefully on mobile devices */
         @media (max-width: 768px) {
             .portfolio-banner {
-                height: 200px;
+                height: 220px;
             }
             .portfolio-banner .project-info {
                 left: 20px;
                 bottom: 20px;
             }
             .portfolio-banner h2 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -163,7 +169,7 @@
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>Arcadia</h2>
-                <p>Theatrical Production — 2026</p>
+                <p>Theatrical Production</p>
             </div>
         </a>
 
@@ -172,7 +178,7 @@
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>Live Concert Lighting</h2>
-                <p>Arena Showcase</p>
+                <p>Music Event Showcase</p>
             </div>
         </a>
 
@@ -181,7 +187,7 @@
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>The Opera</h2>
-                <p>Main Stage Production</p>
+                <p>Main Stage Scenic Production</p>
             </div>
         </a>
 

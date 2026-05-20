@@ -20,20 +20,15 @@
             color: #fff;
             font-family: 'Roboto', sans-serif;
             padding: 40px 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         /* Top Navigation Header */
         header {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto 30px auto;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-shrink: 0;
         }
         .logo-text {
             font-size: 1.1rem;
@@ -57,57 +52,36 @@
 
         /* Page Title */
         h1.page-title {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto 20px auto;
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
             color: #fffde6;
             font-size: 2rem;
             letter-spacing: 1px;
             font-weight: 700;
-            flex-shrink: 0;
         }
 
-        /* Horizontal Scroll Container (Left to Right) */
-        .portfolio-scroll-container {
-            width: 100%;
-            max-width: 1400px;
+        /* Up and Down Layout Container */
+        .portfolio-list {
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            flex-direction: row; /* Forces items side-by-side */
-            gap: 20px;
-            overflow-x: auto; /* Adds the horizontal scrollbar when items overflow */
-            overflow-y: hidden;
-            padding-bottom: 25px; /* Space for the scrollbar aesthetic */
-            flex-grow: 1;
-            scroll-behavior: smooth;
+            flex-direction: column; /* Stacks items vertically */
+            gap: 24px; /* Vertical gap between rows */
         }
 
-        /* Custom Scrollbar Styling to keep it looking clean */
-        .portfolio-scroll-container::-webkit-scrollbar {
-            height: 8px;
-        }
-        .portfolio-scroll-container::-webkit-scrollbar-track {
-            background: #222;
-            border-radius: 4px;
-        }
-        .portfolio-scroll-container::-webkit-scrollbar-thumb {
-            background: #d6336c;
-            border-radius: 4px;
-        }
-
-        /* Tall, Vertical Standee Banner Item */
+        /* Individual Widescreen Banner Rows */
         .portfolio-banner {
             position: relative;
-            flex: 0 0 320px; /* Fixed width of 320px per banner, won't shrink */
-            height: 550px; /* Tall aspect ratio mimicking your rollup banner upload */
+            width: 100%;
+            height: 350px; /* Adjust row height here */
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            text-decoration: none;
             display: block;
+            text-decoration: none;
         }
 
-        /* Portrait-oriented backgrounds */
+        /* Images stretch completely across the banner */
         .portfolio-banner img {
             width: 100%;
             height: 100%;
@@ -115,57 +89,62 @@
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Heavy dark vignette overlay bottom-to-top for typography readability */
+        /* Smooth dark overlay gradient to make text pop over variable lighting images */
         .portfolio-banner .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
             transition: background 0.3s;
         }
 
-        /* Text positioning at the base of the vertical column */
+        /* Bottom-left text alignment styling */
         .portfolio-banner .project-info {
             position: absolute;
-            bottom: 30px;
-            left: 25px;
-            right: 25px;
+            bottom: 35px;
+            left: 40px;
             z-index: 2;
         }
 
         .portfolio-banner h2 {
-            font-size: 1.6rem;
+            font-size: 2rem;
             color: #fffde6;
             letter-spacing: 1px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             text-transform: uppercase;
             font-weight: 700;
-            text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
         }
 
         .portfolio-banner p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #ccc;
             letter-spacing: 0.5px;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
 
-        /* Zoom and shadow transition interactions */
+        /* Interaction Effects */
         .portfolio-banner:hover img {
-            transform: scale(1.04);
+            transform: scale(1.02); /* Slight immersive zoom */
         }
         
         .portfolio-banner:hover .overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.1) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
         }
 
-        /* Mobile adaptation - scales down banner aspect boxes gracefully */
-        @media (max-width: 480px) {
+        /* Adjusts banner sizes gracefully on mobile devices */
+        @media (max-width: 768px) {
             .portfolio-banner {
-                flex: 0 0 260px;
-                height: 440px;
+                height: 220px;
+            }
+            .portfolio-banner .project-info {
+                left: 20px;
+                bottom: 20px;
+            }
+            .portfolio-banner h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -183,10 +162,10 @@
     
     <h1 class="page-title">Portfolio</h1>
 
-    <div class="portfolio-scroll-container">
+    <div class="portfolio-list">
 
         <a href="#" class="portfolio-banner">
-            <img src="https://lh3.googleusercontent.com/u/0/d/1z3_YH9Ntxpw9xTYhotKHTT5r_h7nbhoT9" alt="Project 1">
+            <img src="https://lh3.googleusercontent.com/u/0/d/4" alt="Project 1">
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>Project One</h2>
@@ -195,38 +174,38 @@
         </a>
 
         <a href="#" class="portfolio-banner">
-            <img src="https://lh3.googleusercontent.com/u/0/d/0" alt="Project 2">
+            <img src="https://lh3.googleusercontent.com/u/0/d/5" alt="Project 2">
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>Project Two</h2>
-                <p>Stage & Scenic Showcase</p>
+                <p>Lighting Design Production</p>
             </div>
         </a>
 
         <a href="#" class="portfolio-banner">
-            <img src="https://lh3.googleusercontent.com/u/0/d/1" alt="Project 3">
+            <img src="https://lh3.googleusercontent.com/u/0/d/6" alt="Project 3">
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>Project Three</h2>
-                <p>Theatrical Production</p>
+                <p>Lighting Design Production</p>
             </div>
         </a>
 
         <a href="#" class="portfolio-banner">
-            <img src="https://lh3.googleusercontent.com/u/0/d/2" alt="Project 4">
+            <img src="https://lh3.googleusercontent.com/u/0/d/7" alt="Project 4">
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>Project Four</h2>
-                <p>Live Concert Lighting</p>
+                <p>Lighting Design Production</p>
             </div>
         </a>
 
         <a href="#" class="portfolio-banner">
-            <img src="https://lh3.googleusercontent.com/u/0/d/3" alt="Project 5">
+            <img src="https://lh3.googleusercontent.com/u/0/d/8" alt="Project 5">
             <div class="overlay"></div>
             <div class="project-info">
                 <h2>Project Five</h2>
-                <p>Arena Exhibition</p>
+                <p>Lighting Design Production</p>
             </div>
         </a>
 

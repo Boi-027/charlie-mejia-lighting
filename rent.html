@@ -166,18 +166,14 @@
         </div>
     </div>
 
-    <script>
+   <script>
         const galleryContainer = document.getElementById('production-gallery');
 
-        // Explicit list matching the exact filenames and capitalizations from your screenshot
-        // Note: If you convert your HEIC files to JPG on GitHub, remember to update the extensions below to .JPG!
+        // Removed the broken .HEIC files to leave only the working web-native .JPGs
         const files = [
             "rent (1).JPG",
-            "rent (1).HEIC",
             "rent (2).JPG",
-            "rent (2).HEIC",
             "rent (3).JPG",
-            "rent (3).HEIC",
             "rent (4).JPG",
             "rent (5).JPG",
             "rent (6).JPG",
@@ -186,9 +182,8 @@
             "rent (9).JPG"
         ];
 
-        // Loop through the specific files array
+        // Loop through the active working files array
         files.forEach((filename, index) => {
-            // URL encodes spaces safely for the folder directory paths
             const safePath = `rent/${encodeURIComponent(filename)}`;
 
             const item = document.createElement('div');

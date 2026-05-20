@@ -4,30 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Charlie Anthony Mejia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Base page reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-color: #111;
             color: #fff;
-            font-family: Arial, sans-serif;
-            padding: 40px;
+            font-family: 'Roboto', sans-serif;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        /* Top Navigation Header */
+        header {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fffde6;
+            text-transform: uppercase;
+            text-decoration: none;
         }
         nav a {
             color: #fffde6;
             text-decoration: none;
-            margin-right: 20px;
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
-        nav a:hover { color: #d6336c; }
-        h1 { margin-top: 40px; color: #fffde6; }
+        nav a:hover { 
+            color: #d6336c; 
+        }
+
+        /* About Page Layout Grid */
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto 100px auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* Splits page between photo and text */
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Portrait Photo Styling */
+        .about-photo {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 253, 230, 0.05);
+            background-color: #1a1a1a;
+        }
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        /* Text Presentation Layout */
+        .about-text h1 {
+            font-size: 2.8rem;
+            color: #fffde6;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .about-text .title-sub {
+            font-size: 1.2rem;
+            color: #d6336c; /* Accents your professional title */
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Highlights blockquotes or design philosophy points beautifully */
+        .highlight-quote {
+            border-left: 3px solid #d6336c;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #fffde6;
+        }
+
+        /* Responsive Mobile Layout tweaks */
+        @media (max-width: 900px) {
+            header {
+                margin-bottom: 40px;
+            }
+            .about-container {
+                grid-template-columns: 1fr; /* Stacks image above text on smaller displays */
+                gap: 40px;
+            }
+            .about-photo {
+                height: 400px; /* Lowers photo frame size cleanly on mobile phone screens */
+            }
+            .about-text h1 {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">← Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+
+    <header>
+        <a href="index.html" class="logo-text">Charlie Anthony Mejia</a>
+        <nav>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html" style="color: #d6336c;">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
     
-    <h1>About Me</h1>
-    <p>Your biography, experience, and artistic philosophy will go here.</p>
+    <main class="about-container">
+        
+        <div class="about-photo">
+            <img src="marisol/marisol%20(1).JPG" alt="Charlie Anthony Mejia">
+        </div>
+
+        <section class="about-text">
+            <h1>Charlie Anthony Mejia</h1>
+            <div class="title-sub">Lighting Designer & Assistant Lighting Designer</div>
+            
+            <p>Charlie Anthony Mejia is a Bay Area–based Lighting Designer and Assistant Lighting Designer whose work blends theatrical storytelling with atmosphere, texture, and movement.</p>
+            
+            <div class="highlight-quote">
+                His design style emphasizes emotionally driven environments and the relationship between light, music, and space, with a focus on creating worlds that feel immersive and alive.
+            </div>
+            
+            <p>Charlie’s work spans regional theatre, opera, and educational productions. Credits include collaborations with the San Francisco Opera and Berkeley Repertory Theatre, reflecting a practice grounded in collaboration and strong visual storytelling.</p>
+            
+            <p>Recent projects include <em>Pictures From Home</em> at Marin Theatre and <em>Annie</em> at Berkeley Playhouse. He holds a BA in Drama from San Francisco State University.</p>
+        </section>
+
+    </main>
+
 </body>
 </html>

@@ -4,30 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Charlie Anthony Mejia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Base page reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-color: #111;
             color: #fff;
-            font-family: Arial, sans-serif;
-            padding: 40px;
+            font-family: 'Roboto', sans-serif;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        /* Top Navigation Header */
+        header {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fffde6;
+            text-transform: uppercase;
+            text-decoration: none;
         }
         nav a {
             color: #fffde6;
             text-decoration: none;
-            margin-right: 20px;
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
-        nav a:hover { color: #d6336c; }
-        h1 { margin-top: 40px; color: #fffde6; }
+        nav a:hover { 
+            color: #d6336c; 
+        }
+
+        /* Contact Page Layout Grid */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto 100px auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* Layout matches the updated about page structure */
+            gap: 60px;
+            align-items: center; /* Centers the content vertically for a balanced feel */
+        }
+
+        /* Image Box Container Styling */
+        .contact-image-box {
+            width: 100%;
+            height: 500px;
+            background-color: #1a1a1a;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 253, 230, 0.1);
+        }
+        .contact-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 40% center; /* Maintains your preferred 40% framing from the about page */
+        }
+
+        /* Contact Details Presentation block */
+        .contact-text h1 {
+            font-size: 2.8rem;
+            color: #fffde6;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .contact-text .subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        /* Interactive Info Links styling */
+        .info-group {
+            margin-bottom: 25px;
+        }
+        .info-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #d6336c; /* Elegant accent highlights the label headers */
+            margin-bottom: 5px;
+        }
+        .info-value a {
+            font-size: 1.4rem;
+            color: #fffde6;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+        .info-value a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Responsive Mobile Layout tweaks */
+        @media (max-width: 900px) {
+            header {
+                margin-bottom: 40px;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-image-box {
+                height: 300px;
+            }
+            .contact-text h1 {
+                font-size: 2.2rem;
+            }
+            .info-value a {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">← Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="about.html">About</a>
-    </nav>
+
+    <header>
+        <a href="index.html" class="logo-text">Charlie Anthony Mejia</a>
+        <nav>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" style="color: #d6336c;">Contact</a>
+        </nav>
+    </header>
     
-    <h1>Contact</h1>
-    <p>Your booking information, email link, and social icons will go here.</p>
+    <main class="contact-container">
+        
+        <div class="contact-image-box">
+            <img src="https://lh3.googleusercontent.com/u/0/d/1yjExVt9eIjjq7H8t6lu9uhJzA-cXpNjS" alt="Charlie Anthony Mejia - Contact Details">
+        </div>
+
+        <section class="contact-text">
+            <h1>Get in Touch</h1>
+            <p class="subtitle">For design opportunities, collaborations, or assistant lighting design inquiries.</p>
+            
+            <div class="info-group">
+                <div class="info-label">Email</div>
+                <div class="info-value">
+                    <a href="mailto:charlieamejia12@gmail.com">charlieamejia12@gmail.com</a>
+                </div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Cell</div>
+                <div class="info-value">
+                    <a href="tel:415-715-1659">415-715-1659</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
 </body>
 </html>

@@ -99,7 +99,31 @@
         .company-sub {
             font-size: 1.3rem;
             color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* Production Credits Box Styling */
+        .show-credits {
             margin-bottom: 40px;
+            font-size: 1rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        .show-credits span {
+            display: block;
+            margin-bottom: 4px;
+        }
+        .show-credits strong {
+            color: #fffde6;
+            font-weight: 700;
+        }
+        .show-credits a {
+            color: #d6336c;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .show-credits a:hover {
+            text-decoration: underline;
         }
 
         /* Production Gallery Layout */
@@ -125,7 +149,7 @@
             border-radius: 6px;
             border: 1px solid rgba(255, 253, 230, 0.05);
             background-color: #1a1a1a;
-            cursor: zoom-in; /* Indicates the picture can be clicked to enlarge */
+            cursor: zoom-in;
         }
         .gallery-item img {
             width: 100%;
@@ -154,12 +178,10 @@
             transition: opacity 0.3s ease;
             cursor: zoom-out;
         }
-        /* Reveal the window overlay smoothly */
         .lightbox-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
-        /* Dynamic container image limits */
         .lightbox-overlay img {
             max-width: 90%;
             max-height: 85%;
@@ -195,6 +217,12 @@
         
         <h1>Dash Akol: According to Marjan (Part 1)</h1>
         <p class="company-sub">Hamid and Christina Moghadam Program in Iranian Studies</p>
+
+        <div class="show-credits">
+            <span><strong>Director:</strong> Bahram Beyzaie</span>
+            <br>
+            <span><strong>Photos:</strong> <a href="https://iranian-studies.stanford.edu/events/photo-galleries/dash-akol-according-marjan-part-1" target="_blank">Stanford Iranian Studies Gallery</a></span>
+        </div>
 
         <div class="gallery-section">
             <h3>Production Gallery</h3>

@@ -99,7 +99,23 @@
         .company-sub {
             font-size: 1.3rem;
             color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* Production Credits Box Styling */
+        .show-credits {
             margin-bottom: 40px;
+            font-size: 1rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        .show-credits span {
+            display: block;
+            margin-bottom: 4px;
+        }
+        .show-credits strong {
+            color: #fffde6;
+            font-weight: 700;
         }
 
         /* Production Gallery Layout */
@@ -125,7 +141,7 @@
             border-radius: 6px;
             border: 1px solid rgba(255, 253, 230, 0.05);
             background-color: #1a1a1a;
-            cursor: zoom-in; /* Indicates the picture can be clicked to enlarge */
+            cursor: zoom-in;
         }
         .gallery-item img {
             width: 100%;
@@ -154,12 +170,10 @@
             transition: opacity 0.3s ease;
             cursor: zoom-out;
         }
-        /* Reveal the window overlay smoothly */
         .lightbox-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
-        /* Dynamic container image limits */
         .lightbox-overlay img {
             max-width: 90%;
             max-height: 85%;
@@ -196,6 +210,11 @@
         <h1>RENT (School Edition)</h1>
         <p class="company-sub">Berkeley Playhouse</p>
 
+        <div class="show-credits">
+            <span><strong>Director:</strong> Lily Jackson</span>
+            <span><strong>Scenic:</strong> Jenna Forder</span>
+        </div>
+
         <div class="gallery-section">
             <h3>Production Gallery</h3>
             <div class="image-grid" id="production-gallery">
@@ -210,7 +229,6 @@
    <script>
         const galleryContainer = document.getElementById('production-gallery');
 
-        // Removed the broken .HEIC files to leave only the working web-native .JPGs
         const files = [
             "rent (1).JPG",
             "rent (2).JPG",
@@ -223,7 +241,6 @@
             "rent (9).JPG"
         ];
 
-        // Loop through the active working files array
         files.forEach((filename, index) => {
             const safePath = `rent/${encodeURIComponent(filename)}`;
 
@@ -234,11 +251,9 @@
             galleryContainer.appendChild(item);
         });
 
-        // --- LIGHTBOX INTERACTIVE COMPONENT CLICK LOGIC ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
-        // Capture user image selections down in the layout grid dynamically
         document.getElementById('production-gallery').addEventListener('click', function(e) {
             const clickedImg = e.target.closest('img');
             
@@ -249,7 +264,6 @@
             }
         });
 
-        // Safe closure routine clears image buffer values to avoid layout flashes
         function closeLightbox() {
             lightbox.classList.remove('active');
             setTimeout(() => { lightboxImg.src = ""; }, 300);

@@ -105,6 +105,32 @@
             letter-spacing: 0.3px;
         }
 
+        /* Dual Resume Buttons Container */
+        .resume-button-container {
+            margin-top: 35px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .resume-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #d6336c;
+            color: #fffde6;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .resume-btn:hover {
+            background-color: #d6336c;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(214, 51, 108, 0.4);
+        }
+
         /* Responsive Mobile Layout tweaks */
         @media (max-width: 900px) {
             header {
@@ -149,6 +175,11 @@
             <p>Charlie’s work spans regional theatre, opera, and educational productions. Credits include collaborations with the San Francisco Opera and Berkeley Repertory Theatre, reflecting a practice grounded in collaboration and strong visual storytelling.</p>
             
             <p>Recent projects include <em>Pictures From Home</em> at Marin Theatre and <em>Annie</em> at Berkeley Playhouse. He holds a BA in Drama from San Francisco State University.</p>
+
+            <div class="resume-button-container">
+                <a href="resumes/Mejia-LD-Resume.pdf" target="_blank" class="resume-btn">LD Resume</a>
+                <a href="resumes/Mejia-ALD-Resume.pdf" target="_blank" class="resume-btn">ALD Resume</a>
+            </div>
         </section>
 
     </main>

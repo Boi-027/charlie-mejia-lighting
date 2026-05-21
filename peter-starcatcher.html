@@ -59,7 +59,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 15%; /* Lowered from 0% to 15% to reveal more top layout context */
+            object-position: center 15%;
         }
         .show-hero .overlay {
             position: absolute;
@@ -102,6 +102,62 @@
             margin-bottom: 40px;
         }
 
+        /* --- CREATIVE TEAM INFO SIDEBAR GRID --- */
+        .show-info-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .show-description {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #ddd;
+        }
+        .creative-team-box {
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 253, 230, 0.1);
+            border-radius: 6px;
+            padding: 24px;
+            align-self: start;
+        }
+        .creative-team-box h2 {
+            font-size: 1.1rem;
+            color: #fffde6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 253, 230, 0.1);
+            padding-bottom: 8px;
+        }
+        .team-member {
+            margin-bottom: 12px;
+        }
+        .team-member:last-child {
+            margin-bottom: 0;
+        }
+        .team-role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #888;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .team-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* Responsive stack for smaller screen sizes */
+        @media (max-width: 768px) {
+            .show-info-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
         /* Production Gallery Layout */
         .gallery-section {
             margin-top: 40px;
@@ -125,7 +181,7 @@
             border-radius: 6px;
             border: 1px solid rgba(255, 253, 230, 0.05);
             background-color: #1a1a1a;
-            cursor: zoom-in; /* Indicates the picture can be clicked to enlarge */
+            cursor: zoom-in;
         }
         .gallery-item img {
             width: 100%;
@@ -154,12 +210,10 @@
             transition: opacity 0.3s ease;
             cursor: zoom-out;
         }
-        /* Reveal the window overlay smoothly */
         .lightbox-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
-        /* Dynamic container image limits */
         .lightbox-overlay img {
             max-width: 90%;
             max-height: 85%;
@@ -196,6 +250,35 @@
         <h1>Peter and the Starcatcher</h1>
         <p class="company-sub">Head Royce School</p>
 
+        <!-- Dynamic Information Grid Split -->
+        <div class="show-info-layout">
+            <div class="show-description">
+                <!-- You can add a short production summary paragraph or design statement text here later if you want! -->
+                <p>Production design values focused on building an immersive, imaginative environment that tracks the origins of Peter Pan. Light cues were used to sharply shape the transitions between the physical ship layouts, dark jungle areas, and magical glowing grotto spaces.</p>
+            </div>
+            
+            <!-- Creative Team Sidebar Box -->
+            <div class="creative-team-box">
+                <h2>Creative Team</h2>
+                <div class="team-member">
+                    <span class="team-role">Director</span>
+                    <span class="team-name">Andy Spear</span>
+                </div>
+                <div class="team-member">
+                    <span class="team-role">Scenic Design</span>
+                    <span class="team-name">Mitchell Ost</span>
+                </div>
+                <div class="team-member">
+                    <span class="team-role">Costume Design</span>
+                    <span class="team-name">Andie Patterson</span>
+                </div>
+                <div class="team-member">
+                    <span class="team-role">Lighting Design</span>
+                    <span class="team-name">Charlie Anthony Mejia</span>
+                </div>
+            </div>
+        </div>
+
         <div class="gallery-section">
             <h3>Production Gallery</h3>
             <div class="image-grid" id="production-gallery">
@@ -214,7 +297,6 @@
         // Automatically loop from peter (1).jpg up to peter (5).jpg
         for (let i = 1; i <= totalImages; i++) {
             const rawFilename = `peter (${i}).jpg`;
-            // Safe URL conversion to escape spaces in the folder name
             const safePath = `peter and the starcatcher/${encodeURIComponent(rawFilename)}`;
 
             const item = document.createElement('div');
@@ -224,11 +306,10 @@
             galleryContainer.appendChild(item);
         }
 
-        // --- LIGHTBOX INTERACTIVE COMPONENT CLICK LOGIC ---
+        // Lightbox interactive routine logic
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
-        // Capture user image selections down in the layout grid dynamically
         document.getElementById('production-gallery').addEventListener('click', function(e) {
             const clickedImg = e.target.closest('img');
             
@@ -239,7 +320,6 @@
             }
         });
 
-        // Safe closure routine clears image buffer values to avoid layout flashes
         function closeLightbox() {
             lightbox.classList.remove('active');
             setTimeout(() => { lightboxImg.src = ""; }, 300);

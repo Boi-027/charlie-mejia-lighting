@@ -125,6 +125,7 @@
             border-radius: 6px;
             border: 1px solid rgba(255, 253, 230, 0.05);
             background-color: #1a1a1a;
+            cursor: zoom-in; /* Makes items look clickable */
         }
         .gallery-item img {
             width: 100%;
@@ -134,6 +135,40 @@
         }
         .gallery-item:hover img {
             transform: scale(1.03);
+        }
+
+        /* Fullscreen Lightbox Overlay Component */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            cursor: zoom-out;
+        }
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .lightbox-overlay.active img {
+            transform: scale(1);
         }
     </style>
 </head>
@@ -162,8 +197,12 @@
         <div class="gallery-section">
             <h3>Production Gallery</h3>
             <div class="image-grid" id="production-gallery">
-                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Enlarged View">
     </div>
 
     <script>
@@ -195,6 +234,25 @@
             
             galleryContainer.appendChild(item);
         });
+
+        // --- LIGHTBOX INTERACTIVE COMPONENT CLICK LOGIC ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.getElementById('production-gallery').addEventListener('click', function(e) {
+            const clickedImg = e.target.closest('img');
+            
+            if (clickedImg) {
+                lightboxImg.src = clickedImg.src;
+                lightboxImg.alt = clickedImg.alt;
+                lightbox.classList.add('active');
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => { lightboxImg.src = ""; }, 300);
+        }
     </script>
 
 </body>

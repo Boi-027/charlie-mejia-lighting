@@ -57,7 +57,7 @@
             max-width: 1200px;
             margin: 0 auto 100px auto;
             display: grid;
-            grid-template-columns: 1fr 1.2fr; /* Splits page between image and text */
+            grid-template-columns: 1.2fr 1fr; /* Swapped proportions to favor the text side first */
             gap: 60px;
             align-items: start;
         }
@@ -111,7 +111,8 @@
                 margin-bottom: 40px;
             }
             .about-container {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column-reverse; /* Stacks image nicely below text on small screens */
                 gap: 40px;
             }
             .about-image-box {
@@ -136,10 +137,6 @@
     
     <main class="about-container">
         
-        <div class="about-image-box">
-            <img src="https://lh3.googleusercontent.com/u/0/d/1IXCqirT38KOg8qW3teLkxDd136F7TsRB" alt="Charlie Anthony Mejia - Lighting Designer">
-        </div>
-
         <section class="about-text">
             <h1>Charlie Anthony Mejia</h1>
             <div class="title-sub">Lighting Designer</div>
@@ -150,6 +147,10 @@
             
             <p>Recent projects include <em>Pictures From Home</em> at Marin Theatre and <em>Annie</em> at Berkeley Playhouse. He holds a BA in Drama from San Francisco State University.</p>
         </section>
+
+        <div class="about-image-box">
+            <img src="https://lh3.googleusercontent.com/u/0/d/" alt="Charlie Anthony Mejia - Lighting Designer">
+        </div>
 
     </main>
 

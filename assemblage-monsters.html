@@ -83,49 +83,64 @@
             color: #d6336c;
             text-decoration: none;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             letter-spacing: 0.5px;
         }
         .back-link:hover { text-decoration: underline; }
 
+        /* Unified Stacked Left-Aligned Credits */
+        .credit-header {
+            margin-bottom: 40px;
+        }
         h1 {
-            font-size: 3rem;
-            color: #fffde6;
+            font-size: 2.8rem;
+            color: #fff;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 5px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
         }
         .company-sub {
             font-size: 1.3rem;
             color: #ccc;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+        }
+        .creative-credits {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        .credit-item {
+            margin-bottom: 4px;
+        }
+        .credit-role {
+            font-weight: 700;
+            color: #fff;
+        }
+        .credit-name {
+            color: #ccc;
         }
 
-        /* Production Gallery Layout */
-        .gallery-section {
-            margin-top: 40px;
-        }
+        /* Three Column Grid Gallery Layout */
         .gallery-section h3 {
-            color: #fffde6;
-            font-size: 1.5rem;
+            color: #fff;
+            font-size: 1.4rem;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
         .gallery-item {
             position: relative;
-            height: 240px;
             overflow: hidden;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 253, 230, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             background-color: #1a1a1a;
-            cursor: zoom-in; /* Indicates the picture can be clicked to enlarge */
+            cursor: zoom-in;
+            aspect-ratio: 4 / 3;
         }
         .gallery-item img {
             width: 100%;
@@ -154,12 +169,10 @@
             transition: opacity 0.3s ease;
             cursor: zoom-out;
         }
-        /* Reveal the window overlay smoothly */
         .lightbox-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
-        /* Dynamic container image limits */
         .lightbox-overlay img {
             max-width: 90%;
             max-height: 85%;
@@ -171,6 +184,13 @@
         }
         .lightbox-overlay.active img {
             transform: scale(1);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
         }
     </style>
 </head>
@@ -193,8 +213,16 @@
     <div class="content-container">
         <a href="portfolio.html" class="back-link">← Back to Portfolio</a>
         
-        <h1>Assemblage of Monsters</h1>
-        <p class="company-sub">13th Floor Theater</p>
+        <div class="credit-header">
+            <h1>Assemblage of Monsters</h1>
+            <p class="company-sub">13th Floor Theater</p>
+            
+            <div class="creative-credits">
+                <p class="credit-item"><span class="credit-role">Director:</span> <span class="credit-name">Jenny McAllister</span></p>
+                <p class="credit-item"><span class="credit-role">Scenic:</span> <span class="credit-name">Treigh Love</span></p>
+                <p class="credit-item"><span class="credit-role">Lighting Design:</span> <span class="credit-name">Charlie Anthony Mejia</span></p>
+            </div>
+        </div>
 
         <div class="gallery-section">
             <h3>Production Gallery</h3>
@@ -214,7 +242,6 @@
         // Automatically loops from assem (1).jpg up to assem (5).jpg
         for (let i = 1; i <= totalImages; i++) {
             const rawFilename = `assem (${i}).jpg`;
-            // Safe URL conversion to escape spaces in the folder name
             const safePath = `assemblage monsters/${encodeURIComponent(rawFilename)}`;
 
             const item = document.createElement('div');
@@ -228,7 +255,6 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
-        // Capture user image selections down in the layout grid dynamically
         document.getElementById('production-gallery').addEventListener('click', function(e) {
             const clickedImg = e.target.closest('img');
             
@@ -239,7 +265,6 @@
             }
         });
 
-        // Safe closure routine clears image buffer values to avoid layout flashes
         function closeLightbox() {
             lightbox.classList.remove('active');
             setTimeout(() => { lightboxImg.src = ""; }, 300);

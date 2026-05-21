@@ -57,28 +57,25 @@
             max-width: 1200px;
             margin: 0 auto 100px auto;
             display: grid;
-            grid-template-columns: 1fr 1.2fr; /* Splits page between box and text */
+            grid-template-columns: 1fr 1.2fr; /* Splits page between image and text */
             gap: 60px;
             align-items: start;
         }
 
-        /* Pure CSS Placeholder Styling */
-        .about-placeholder-box {
+        /* Profile Image Container Styling */
+        .about-image-box {
             width: 100%;
             height: 600px;
             background-color: #1a1a1a;
-            border: 1px dashed rgba(255, 253, 230, 0.2);
             border-radius: 6px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(255, 253, 230, 0.1);
         }
-        .placeholder-text {
-            color: #666;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .about-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         /* Text Presentation Layout */
@@ -93,7 +90,7 @@
         
         .about-text .title-sub {
             font-size: 1.2rem;
-            color: #d6336c; /* Accents your professional title */
+            color: #d6336c;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -114,11 +111,11 @@
                 margin-bottom: 40px;
             }
             .about-container {
-                grid-template-columns: 1fr; /* Stacks image above text on smaller displays */
+                grid-template-columns: 1fr;
                 gap: 40px;
             }
-            .about-placeholder-box {
-                height: 350px; 
+            .about-image-box {
+                height: 350px;
             }
             .about-text h1 {
                 font-size: 2.2rem;
@@ -139,8 +136,8 @@
     
     <main class="about-container">
         
-        <div class="about-placeholder-box">
-            <span class="placeholder-text">Placeholder</span>
+        <div class="about-image-box">
+            <img src="https://lh3.googleusercontent.com/u/0/d/1IXCqirT38KOg8qW3teLkxDd136F7TsRB" alt="Charlie Anthony Mejia - Lighting Designer">
         </div>
 
         <section class="about-text">
